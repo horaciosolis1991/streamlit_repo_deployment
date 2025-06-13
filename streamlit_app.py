@@ -36,10 +36,10 @@ def generate_sales_data(num_days=100):
 df = generate_sales_data(200)
 
 # --- Dashboard Title and Introduction ---
-st.title("📊 Simple Sales Dashboard")
+st.title("📊 Dashboad de ventas (Datos Dummy)")
 st.markdown("""
-This dashboard demonstrates a basic sales overview using Streamlit.
-You can filter the data by date range and region using the sidebar controls.
+Muestra de datos usando streamlit (Python) .
+Porfavor sientete libre de usar la herramienta a gusto para que entiendas como funciona el filtrado de un dashboard :D.
 """)
 
 # --- Sidebar for Filters ---
@@ -82,7 +82,7 @@ filtered_df = df[
 ]
 
 # --- Display Key Metrics ---
-st.subheader("Key Metrics")
+st.subheader("Indicadores clave")
 
 # Create columns for metric display to arrange them side-by-side.
 col1, col2, col3 = st.columns(3)
@@ -100,18 +100,18 @@ with col3:
     st.metric(label="Number of Transactions", value=f"{num_transactions:,}")
 
 # --- Data Table Display ---
-st.subheader("Raw Data Preview")
+st.subheader("Preview de datos")
 # Display the filtered DataFrame.
 st.dataframe(filtered_df)
 
 # --- Visualizations ---
-st.subheader("Sales Trend Over Time")
+st.subheader("Ventas en el tiempo")
 # Group data by date to plot the daily sales trend.
 daily_sales_trend = filtered_df.groupby('Date')['Sales'].sum().reset_index()
 # Plot a line chart using Streamlit's built-in chart function.
 st.line_chart(daily_sales_trend, x='Date', y='Sales')
 
-st.subheader("Sales by Region")
+st.subheader("Ventas por region")
 # Group data by region to plot sales distribution per region.
 sales_by_region = filtered_df.groupby('Region')['Sales'].sum().reset_index()
 # Plot a bar chart.
@@ -119,5 +119,5 @@ st.bar_chart(sales_by_region, x='Region', y='Sales')
 
 # --- Additional Information ---
 st.markdown("---")
-st.write("This dashboard is a simple demonstration. Streamlit allows for much more complex visualizations and interactive elements.")
-st.info("To modify this dashboard, edit the 'dashboard_app.py' file and save it. Streamlit will automatically detect changes and update the app.")
+st.write("Demostracion simple de las capacidades de un dasboard usando las tecnologias mencionadas, para consultas contactarme ;) .")
+st.info("Horacio Solis Data engineer/Senior business analyts/ AWS 2x.")
